@@ -1,6 +1,6 @@
 import './App.css';
 import General from './components/General.jsx';
-import Education from './components/General.jsx';
+import Education from './components/Education.jsx';
 import Experience from "./components/Experience.jsx";
 import Preview from "./components/Preview.jsx";
 import {useState} from "react";
