@@ -1,4 +1,8 @@
-import './App.css'
+import './App.css';
+import General from './components/General.jsx';
+import Education from './components/General.jsx';
+import Experience from "./components/Experience.jsx";
+import Preview from "./components/Preview.jsx";
 import {useState} from "react";
 
 function App() {
@@ -22,7 +26,15 @@ function App() {
     to: ''
   });
 
-  return <h1>TOP CV</h1>
+  return (
+      <>
+        <h1>TOP CV</h1>
+        <General />
+        <Education />
+        <Experience />
+        <Preview />
+      </>
+  )
 }
 
 export default App
