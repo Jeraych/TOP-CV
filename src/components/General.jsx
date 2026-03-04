@@ -1,47 +1,40 @@
-import '../styles/General.css'
+import '../styles/style.css'
 
-function General() {
-
+function General({ data, handleChange, isEditing }) {
     return (
-        <div className="general-info">
-            <form>
-                <label>
-                    Name:
+        <section>
+            <h2>General Information</h2>
+
+            {isEditing ? (
+                <>
                     <input
-                        type="text"
                         name="name"
-
-                        />
-                </label>
-                <label>
-                    Email:
+                        value={data.name}
+                        onChange={handleChange}
+                        placeholder="Full Name"
+                    />
                     <input
-                        type="email"
                         name="email"
-
+                        value={data.email}
+                        onChange={handleChange}
+                        placeholder="Email"
                     />
-                </label>
-                <label>
-                    Phone:
                     <input
-                        type="tel"
                         name="phone"
-
+                        value={data.phone}
+                        onChange={handleChange}
+                        placeholder="Phone"
                     />
-                </label>
-                <button type="button">
-                    Submit
-                </button>
-            </form>
-
-            <div>
-                <p>Name: </p>
-                <p>Email: </p>
-                <p>Phone: </p>
-                <button>Edit</button>
-            </div>
-        </div>
-    )
+                </>
+            ) : (
+                <div className="general-header">
+                    <h2>{data.name}</h2>
+                    <p>{data.email}</p>
+                    <p>{data.phone}</p>
+                </div>
+            )}
+        </section>
+    );
 }
 
 export default General;

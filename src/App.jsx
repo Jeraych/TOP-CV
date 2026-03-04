@@ -1,40 +1,61 @@
+import { useState } from "react";
+import General from "./components/General";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
 import './App.css';
-import General from './components/General.jsx';
-import Education from './components/Education.jsx';
-import Experience from "./components/Experience.jsx";
-import Preview from "./components/Preview.jsx";
-import {useState} from "react";
 
 function App() {
-  const [generalInfo, setGeneralInfo] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
+    const [isEditing, setIsEditing] = useState(true);
 
-  const [education, setEducation] = useState({
-    school: '',
-    title: '',
-    date: ''
-  });
+    const [cvData, setCvData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        school: "",
+        degree: "",
+        eduDate: "",
+        company: "",
+        position: "",
+        expDate: "",
+    });
 
-  const [experience, setExperience] = useState({
-    company: '',
-    position: '',
-    responsibilities: '',
-    from: '',
-    to: ''
-  });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCvData({
+            ...cvData,
+            [name]: value,
+        });
+    };
 
-  return (
-      <>
-        <h1>TOP CV</h1>
-        <General />
-        <Education />
-        <Experience />
-        <Preview />
-      </>
-  )
+    return (
+        <div className="container">
+            <h1>CV Builder</h1>
+
+            <General
+                data={cvData}
+                handleChange={handleChange}
+                isEditing={isEditing}
+            />
+
+            <Education
+                data={cvData}
+                handleChange={handleChange}
+                isEditing={isEditing}
+            />
+
+            <Experience
+                data={cvData}
+                handleChange={handleChange}
+                isEditing={isEditing}
+            />
+
+            {isEditing ? (
+                <button onClick={() => setIsEditing(false)}>Submit</button>
+            ) : (
+                <button onClick={() => setIsEditing(true)}>Edit</button>
+            )}
+        </div>
+    );
 }
 
-export default App
+export default App;

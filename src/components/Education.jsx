@@ -1,43 +1,40 @@
-import '../styles/Education.css'
+import '../styles/style.css'
 
-function Education() {
-
+function Education({ data, handleChange, isEditing }) {
     return (
-        <div className="education">
-            <form>
-                <label>
-                    School Name:
+        <section>
+            <h2>Education</h2>
+
+            {isEditing ? (
+                <>
                     <input
-                        type="text"
                         name="school"
-                        />
-                </label>
-                <label>
-                    Title of Study:
-                    <input
-                        type="text"
-                        name="school"
+                        value={data.school}
+                        onChange={handleChange}
+                        placeholder="School Name"
                     />
-                </label>
-                <label>
-                    Date:
                     <input
-                        type="text"
-                        name="school"
+                        name="degree"
+                        value={data.degree}
+                        onChange={handleChange}
+                        placeholder="Degree"
                     />
-                </label>
-                <button type="button">
-                    Submit
-                </button>
-            </form>
-            <div>
-                <p>School: </p>
-                <p>Title: </p>
-                <p>Date: </p>
-                <button>Edit</button>
-            </div>
-        </div>
-    )
+                    <input
+                        name="eduDate"
+                        value={data.eduDate}
+                        onChange={handleChange}
+                        placeholder="Study Period (e.g. 2020–2024)"
+                    />
+                </>
+            ) : (
+                <>
+                    <p><strong>{data.school}</strong></p>
+                    <p>{data.degree}</p>
+                    <p>{data.eduDate}</p>
+                </>
+            )}
+        </section>
+    );
 }
 
 export default Education;

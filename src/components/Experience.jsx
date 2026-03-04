@@ -1,58 +1,39 @@
-import '../styles/Experience.css'
+import '../styles/style.css'
 
-function Experience() {
-
+function Experience({ data, handleChange, isEditing }) {
     return (
-        <div className="experience">
-            <form>
-                <label>
-                    Company:
+        <section>
+            <h2>Experience</h2>
+
+            {isEditing ? (
+                <>
                     <input
-                        type="text"
                         name="company"
+                        value={data.company}
+                        onChange={handleChange}
+                        placeholder="Company Name"
                     />
-                </label>
-                <label>
-                    Position:
                     <input
-                        type="text"
                         name="position"
+                        value={data.position}
+                        onChange={handleChange}
+                        placeholder="Job Title"
                     />
-                </label>
-                <label>
-                    Responsibilities:
                     <input
-                        type="text"
-                        name="responsibilities"
+                        name="expDate"
+                        value={data.expDate}
+                        onChange={handleChange}
+                        placeholder="Work Period (e.g. 2022–Present)"
                     />
-                </label>
-                <label>
-                    From:
-                    <input
-                        type="text"
-                        name="from"
-                    />
-                </label>
-                <label>
-                    To:
-                    <input
-                        type="text"
-                        name="to"
-                    />
-                </label>
-                <button type="button">
-                    Submit
-                </button>
-            </form>
-            <div>
-                <p>Company: </p>
-                <p>Position: </p>
-                <p>Responsibilities: </p>
-                <p>From: </p>
-                <p>To: </p>
-                <button>Edit</button>
-            </div>
-        </div>
+                </>
+            ) : (
+                <>
+                    <p><strong>{data.company}</strong></p>
+                    <p>{data.position}</p>
+                    <p>{data.expDate}</p>
+                </>
+            )}
+        </section>
     );
 }
 
