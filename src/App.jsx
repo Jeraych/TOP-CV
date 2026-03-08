@@ -29,7 +29,7 @@ function App() {
 
     return (
         <div className="container">
-            <h1>CV Builder</h1>
+            <h1>{cvData.name}</h1>
 
             <General
                 data={cvData}
