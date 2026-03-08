@@ -29,7 +29,7 @@ function App() {
 
     return (
         <div className="container">
-            <h1>{cvData.name}</h1>
+            {cvData.name !== "" ? (<h1>{cvData.name}</h1>) : <h1>TOP CV</h1>}
 
             <General
                 data={cvData}

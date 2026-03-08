@@ -36,18 +36,8 @@ strong {
     font-size: 16px;
 }
 
-.general-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
 .general-header h2 {
     border: none;
     font-size: 24px;
     margin-bottom: 8px;
-}
-
-.general-header p {
-    margin: 2px 0;
-    color: #555;
 }
